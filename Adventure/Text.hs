@@ -1,4 +1,4 @@
-module Canvas
-    (a) where
+module Adventure.Text
+    (b) where
 
-a = undefined
+b = undefined

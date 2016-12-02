@@ -6,6 +6,9 @@ import Data.Maybe
 import System.IO
 import System.Console.Terminal.Size
 
+import Adventure.Canvas
+import Adventure.Text
+
 main = do
     c <- newEmptyMVar
     hSetBuffering stdin NoBuffering
