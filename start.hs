@@ -21,11 +21,13 @@ main = do
     forkIO $ do
       key <- getChar
       putMVar c key
-      putStrLn $ "\nChar:" ++ [key]
+      draw $ generateFullCanvas w h (key, True)
+      --putStrLn $ "\nChar:" ++ [key]
     wait c
   where wait c = do
           a <- tryTakeMVar c
           if isJust a then main
           else threadDelay 200000 >> wait c
 
---draw c = mapM_ mapM_ (\y -> putStrLn $ (take (w `div` 3) (cycle ['\127794',' '])) ++ " " ++ (take (w `div` 3 -1) (cycle [' ',' ',' ',' '])) ++ (take (w `div` 3) (cycle ['\127794',' ']))) [2..h]
+draw :: Canvas -> IO ()
+draw = mapM_ (putStrLn . map fst)
