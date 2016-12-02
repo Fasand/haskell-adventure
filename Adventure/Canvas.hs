@@ -1,7 +1,7 @@
 module Adventure.Canvas
     (Canvas, merge, generateBackground, generateFullCanvas) where
 
---              (char, passable)
+--            (char, passable)
 type Pixel  = (Char, Bool)
 type Canvas = [[Pixel]]
 
