@@ -1,13 +1,15 @@
 module Adventure.Canvas
     (emptyCanvas, merge, sameDimensions) where
 
-
 --              (char, passable)
 type Pixel  = (Char, Bool)
 type Canvas = [[Pixel]]
 
+generateFullCanvas :: Int -> Int -> Pixel -> Canvas
+generateFullCanvas w h p = replicate h $ replicate w p
+
 emptyCanvas :: Int -> Int -> Canvas
-emptyCanvas w h = replicate h $ replicate w (' ', True)
+emptyCanvas w h = generateFullCanvas w h (' ', True)
 
 uniform :: Canvas -> Bool
 uniform c = all (== length (head c)) $ map length c
@@ -15,6 +17,11 @@ uniform c = all (== length (head c)) $ map length c
 sameDimensions :: Canvas -> Canvas -> Bool
 sameDimensions c k = (length c == length k) && (uniform c && uniform k) && (length (head c) == length (head k))
 
+generateBackground :: Int -> Int -> Canvas
+generateBackground w h = generateFullCanvas w h ('\127794', False)
+
+-- Merge two canvases
+-- top onto bottom (replace anything non-space)
 merge :: Canvas -> Canvas -> Canvas
 merge top bottom
   | sameDimensions top bottom =

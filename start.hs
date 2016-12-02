@@ -27,3 +27,5 @@ main = do
           a <- tryTakeMVar c
           if isJust a then main
           else threadDelay 200000 >> wait c
+
+--draw c = mapM_ mapM_ (\y -> putStrLn $ (take (w `div` 3) (cycle ['\127794',' '])) ++ " " ++ (take (w `div` 3 -1) (cycle [' ',' ',' ',' '])) ++ (take (w `div` 3) (cycle ['\127794',' ']))) [2..h]
