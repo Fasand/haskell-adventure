@@ -11,3 +11,4 @@ mapM_ (\y -> putStrLn $ (take (w `div` 3) (cycle ['\127794',' '])) ++ " " ++ (ta
 \11044  - Large black circle (⬤ )
 \128308 - Large red circle (🔴 )
 \128309 - Large blue circle (🔵 )
+something
